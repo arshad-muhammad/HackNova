@@ -13,34 +13,39 @@ const schedule = [
 
 export default function Timeline() {
   return (
-    <section id="schedule" className="py-32 relative">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <section id="schedule" className="py-24 relative overflow-hidden">
+      {/* Soft background glows */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[50%] right-[-10%] w-[450px] h-[300px] bg-gradient-to-l from-transparent via-space-purple/5 to-transparent blur-[80px]" />
+      </div>
 
-        <div className="text-center mb-20">
+      <div className="container mx-auto px-6 max-w-4xl relative z-10">
+
+        <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 mb-4"
+            className="inline-flex items-center gap-2 mb-3"
           >
-            <span className="w-8 h-[1px] bg-samurai-red" />
-            <span className="text-samurai-red font-display tracking-widest uppercase text-[10px] font-extrabold">The Schedule</span>
-            <span className="w-8 h-[1px] bg-samurai-red" />
+            <span className="w-6 h-[1px] bg-space-purple/50" />
+            <span className="text-space-purple font-mono tracking-[0.25em] uppercase text-[11px] font-bold">The Schedule</span>
+            <span className="w-6 h-[1px] bg-space-purple/50" />
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[60px] md:text-[88px] font-black leading-[0.9] uppercase tracking-[-0.04em]"
+            className="font-display text-[44px] sm:text-[60px] md:text-[76px] font-black leading-[0.9] uppercase tracking-[-0.03em] text-white"
           >
-            PATH OF THE <span className="text-samurai-red">WARRIOR</span>
+            EVENT TIMELINE
           </motion.h2>
         </div>
 
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 md:-translate-x-1/2" />
+          {/* Vertical Gradient Line */}
+          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent md:-translate-x-1/2" />
 
           <div className="space-y-12">
             {schedule.map((item, index) => (
@@ -50,18 +55,30 @@ export default function Timeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
               >
-                {/* Center Node */}
-                <div className="absolute left-[28px] md:left-1/2 w-3 h-3 rounded-full bg-samurai-red -translate-x-[5.5px] md:-translate-x-1/2 mt-1.5 md:mt-0 box-glow z-10" />
+                {/* Center Node / Pulsing Marker */}
+                <div className="absolute left-[28px] md:left-1/2 -translate-x-[11.5px] md:-translate-x-1/2 mt-1.5 md:mt-0 w-6 h-6 flex items-center justify-center z-10">
+                  <span className="absolute w-5 h-5 rounded-full bg-space-purple/20 animate-ping" style={{ animationDuration: '3s' }} />
+                  <span className="absolute w-3.5 h-3.5 rounded-full bg-space-black border border-space-purple" />
+                  <span className="absolute w-1.5 h-1.5 rounded-full bg-space-purple" />
+                </div>
 
-                {/* Content */}
+                {/* Content Card */}
                 <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-left md:text-right'}`}>
-                  <div className="glass-panel p-6 rounded-xl border border-white/5 hover:border-samurai-red/30 transition-colors group">
-                    <div className="text-samurai-red font-mono text-[10px] uppercase font-bold tracking-[0.1em] mb-2">{item.time}</div>
-                    <h3 className="text-xl font-display font-bold text-white mb-2 tracking-wide group-hover:text-samurai-red transition-colors">{item.title}</h3>
-                    <p className="text-[11px] text-ink-dim leading-[1.4]">{item.desc}</p>
+                  <div className="glass-panel p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-space-purple/35 transition-all duration-300 group relative overflow-hidden">
+                    {/* Subtle glow on hover */}
+                    <div className="absolute inset-0 bg-radial-glow opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none scale-75" />
+                    
+                    <div className="relative z-10">
+                      <div className="text-space-purple font-mono text-[10px] uppercase font-bold tracking-[0.15em] mb-2">{item.time}</div>
+                      <h3 className="text-lg font-display font-black text-white mb-2 tracking-wide group-hover:text-space-purple transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-[12px] text-ink-dim leading-[1.6] font-light">{item.desc}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>

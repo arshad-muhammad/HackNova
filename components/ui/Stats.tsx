@@ -6,7 +6,7 @@ const stats = [
   { label: 'The Fleet', value: '200+', desc: 'Elite engineers and visionaries from around the globe.' },
   { label: 'The Sages', value: '20+', desc: 'Industry mentors from leading AI research labs.' },
   { label: 'The Prize', value: '₹30K', desc: 'Prize pool, sponsored prizes, certificates, and goodies.' },
-  { label: 'Venue', value: 'Offline', desc: 'Joy University in Alaganeri, Tamil Nadu.' },
+  { label: 'Venue', value: 'Offline', desc: 'VTU Belagavi, Karnataka.' },
 ];
 
 export default function Stats() {

@@ -9,12 +9,12 @@ export default function Privacy() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-widest text-samurai-red mb-8">
+                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-widest text-space-purple mb-8">
                     Privacy Policy
                 </h1>
-                <div className="prose prose-invert prose-red max-w-none font-light leading-relaxed space-y-6">
+                <div className="prose prose-invert prose-violet max-w-none font-light leading-relaxed space-y-6">
                     <p>
-                        Your privacy is critically important to us. This Privacy Policy outlines the types of personal information that is received and collected by the HACK[AI]THON organizing team and how it is used.
+                        Your privacy is critically important to us. This Privacy Policy outlines the types of personal information that is received and collected by the HackNova organizing team and how it is used.
                     </p>
                     <h2 className="text-2xl font-bold mt-8 mb-4 text-white uppercase tracking-wider">Information We Collect</h2>
                     <p>

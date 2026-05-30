@@ -32,119 +32,127 @@ const steps = [
 
 export default function Challenge() {
   return (
-    <section className="py-32 relative bg-samurai-charcoal/30 border-y border-white/5" id="challenge">
-      <div className="container mx-auto px-6">
+    <section className="py-24 relative overflow-hidden" id="challenge">
+      {/* Soft ambient background glows */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[30%] left-[-15%] w-[500px] h-[350px] bg-gradient-to-r from-transparent via-space-purple/5 to-transparent blur-[90px]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 mb-4"
+            className="inline-flex items-center gap-2 mb-3"
           >
-            <span className="w-8 h-[1px] bg-samurai-red" />
-            <span className="text-samurai-red font-display tracking-widest uppercase text-[10px] font-extrabold">The Mission Scroll</span>
-            <span className="w-8 h-[1px] bg-samurai-red" />
+            <span className="w-6 h-[1px] bg-space-purple/50" />
+            <span className="text-space-purple font-mono tracking-[0.25em] uppercase text-[11px] font-bold">The Cosmic Mission</span>
+            <span className="w-6 h-[1px] bg-space-purple/50" />
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[60px] md:text-[88px] font-black leading-[0.9] uppercase tracking-[-0.04em] mb-6"
+            className="font-display text-[44px] sm:text-[60px] md:text-[76px] font-black leading-[0.9] uppercase tracking-[-0.03em] mb-6 text-white"
           >
-            THE <span className="text-samurai-red">CHALLENGE</span>
+            THE CHALLENGE
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light"
+            className="text-base md:text-lg text-ink-dim max-w-2xl mx-auto font-light leading-relaxed"
           >
             All participants will compete on the same AI challenge using data-centric methodology.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
-            <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
+            <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-black mb-6 text-white leading-[1.1] tracking-tight">
               Build an image classification model using Data-Centric AI with 3LC.
             </h3>
-            <p className="text-base leading-[1.6] text-ink-dim mb-6">
+            <p className="text-sm sm:text-base leading-[1.6] text-ink-dim mb-8 font-light max-w-2xl">
               Participants will train a model on a small labeled dataset and improve performance by strategically labeling additional data using embeddings and model feedback.
             </p>
-            <div className="glass-panel p-6 border-l-4 border-samurai-red bg-samurai-red/5">
-              <p className="text-lg font-medium text-white italic">
+            <div className="glass-panel border-l-2 border-space-purple bg-space-purple/[0.02] rounded-r-2xl p-6 max-w-2xl w-full">
+              <p className="text-sm sm:text-base font-light text-white/90 italic leading-relaxed">
                 "Instead of changing the model architecture, competitors must improve accuracy by improving the dataset itself."
               </p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="glass-panel p-8 rounded-2xl border border-white/10 relative overflow-hidden"
+            className="lg:col-span-5 glass-panel p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-space-purple/20 transition-all duration-300 relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-samurai-red/10 blur-[50px] rounded-full" />
-            <h4 className="text-samurai-red font-mono text-sm uppercase font-bold tracking-[0.1em] mb-4">Key Concept</h4>
-            <h3 className="text-2xl font-display font-bold mb-6 text-white">What is Data-Centric AI?</h3>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-space-purple/10 blur-[50px] rounded-full pointer-events-none" />
+            <h4 className="text-space-purple font-mono text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Key Concept</h4>
+            <h3 className="font-display text-xl sm:text-2xl font-black mb-6 text-white tracking-wide">What is Data-Centric AI?</h3>
             
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="w-1 h-auto bg-white/20 rounded-full" />
+                <div className="w-[2px] h-auto bg-white/20 rounded-full shrink-0" />
                 <div>
-                  <div className="text-white font-bold mb-1">Traditional AI</div>
-                  <div className="text-sm text-ink-dim">Focuses on improving models and algorithms.</div>
+                  <div className="text-white text-sm font-bold tracking-wide mb-1">Traditional AI</div>
+                  <div className="text-xs text-ink-dim leading-relaxed font-light">Focuses on improving models and algorithms.</div>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-1 h-auto bg-samurai-red rounded-full" />
+                <div className="w-[2px] h-auto bg-space-purple rounded-full shrink-0" />
                 <div>
-                  <div className="text-white font-bold mb-1">Data-Centric AI</div>
-                  <div className="text-sm text-ink-dim">Focuses on improving the quality of data used to train models.</div>
+                  <div className="text-space-purple-glow text-sm font-bold tracking-wide mb-1">Data-Centric AI</div>
+                  <div className="text-xs text-ink-dim leading-relaxed font-light">Focuses on improving the quality of data used to train models.</div>
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative glass-panel rounded-xl p-8 hover:bg-white/[0.02] transition-colors duration-500 border border-white/5 hover:border-samurai-red/30 overflow-hidden"
+              className="glass-panel rounded-2xl p-8 bg-white/[0.01] hover:bg-white/[0.03] hover:border-space-purple/35 transition-all duration-300 border border-white/5 overflow-hidden group relative flex flex-col justify-between min-h-[220px]"
             >
-              {/* Background Number */}
-              <div className="absolute -right-4 -top-4 text-8xl font-display font-bold text-white/[0.03] group-hover:text-samurai-red/[0.05] transition-colors duration-500 pointer-events-none">
-                {step.id}
-              </div>
+              {/* Radial glow on hover */}
+              <div className="absolute inset-0 bg-radial-glow opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none scale-75" />
 
-              <div className="text-samurai-red mb-6 transform group-hover:scale-110 transition-transform duration-500 origin-left">
-                {step.icon}
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="text-space-purple transform group-hover:scale-110 transition-transform duration-300 origin-left shrink-0">
+                    {step.icon}
+                  </div>
+                  <div className="font-mono text-xs text-space-purple/40 group-hover:text-space-purple/70 transition-colors">
+                    / {step.id}
+                  </div>
+                </div>
+                
+                <h3 className="font-display text-lg font-black mb-3 tracking-wide text-white group-hover:text-space-purple transition-colors">
+                  {step.title}
+                </h3>
+                
+                <p className="text-[12px] text-ink-dim leading-[1.6] font-light">
+                  {step.description}
+                </p>
               </div>
-              
-              <h3 className="text-xl font-display font-bold mb-4 tracking-wide text-white group-hover:text-samurai-red transition-colors">
-                {step.title}
-              </h3>
-              
-              <p className="text-[11px] text-ink-dim leading-[1.4]">
-                {step.description}
-              </p>
-
-              {/* Bottom Line Indicator */}
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-samurai-red group-hover:w-full transition-all duration-500 ease-out" />
             </motion.div>
           ))}
         </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { Menu, X, Sword } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navItems = ['Home', 'About', 'Challenge', 'Schedule', 'Sponsors', 'FAQ'];
@@ -10,6 +10,48 @@ const navItems = ['Home', 'About', 'Challenge', 'Schedule', 'Sponsors', 'FAQ'];
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
+
+  useEffect(() => {
+    // Only spy on scroll if we are on the home page
+    if (window.location.pathname !== '/') return;
+
+    const sections = navItems.map((item) => {
+      const id = item === 'Schedule' ? 'schedule' : item.toLowerCase();
+      return {
+        id,
+        item,
+        el: document.getElementById(id),
+      };
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px', // Trigger when a section occupies the viewport center
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const matched = sections.find((s) => s.id === sectionId);
+          if (matched) {
+            setActiveTab(matched.item);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((sec) => {
+      if (sec.el) observer.observe(sec.el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <motion.nav
@@ -20,9 +62,9 @@ export default function Navbar() {
     >
       <div className="glass-pill rounded-full px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3 text-samurai-red font-display font-black text-sm tracking-[2px]">
-          <img src="/logo.png" alt="HackAIThon Logo" className="h-8 w-auto object-contain" />
-          <span>HACK[AI]THON</span>
+        <div className="flex items-center gap-3 text-space-purple font-display font-black text-sm tracking-[2px]">
+          <img src="/logo.png" alt="HackNova Logo" className="h-8 w-auto object-contain" />
+          <span>HACKNOVA</span>
         </div>
 
         {/* Desktop Nav */}
@@ -40,7 +82,7 @@ export default function Navbar() {
                 }
               }}
               className={`text-[11px] uppercase tracking-[0.15em] font-semibold transition-colors duration-200 ${activeTab === item
-                ? 'text-white border-b-2 border-samurai-red pb-1'
+                ? 'text-white border-b-2 border-space-purple pb-1'
                 : 'text-ink-dim hover:text-white'
                 }`}
             >

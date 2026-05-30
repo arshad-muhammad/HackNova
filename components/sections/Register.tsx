@@ -82,10 +82,10 @@ export default function Register() {
     if (status === 'success') {
         return (
             <div className="min-h-screen pt-32 pb-20 px-4 md:px-8 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-                <CheckCircle2 className="w-24 h-24 text-[#ff3300] mb-8 animate-pulse" />
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 font-orbitron heading-glow">HONOR SECURED</h1>
+                <CheckCircle2 className="w-24 h-24 text-[#8B5CF6] mb-8 animate-pulse" />
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 font-orbitron heading-glow">MISSION LAUNCHED</h1>
                 <p className="text-gray-400 text-lg md:text-xl font-rajdhani">
-                    Your path as the {teamName} clan begins now. Await your trial instructions.
+                    Your journey as the {teamName} crew begins now. Await your launch instructions.
                 </p>
             </div>
         );
@@ -94,27 +94,27 @@ export default function Register() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-4 md:px-8 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ff3300]/5 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#cc0000]/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#8B5CF6]/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 font-orbitron heading-glow tracking-tighter">
-                        REGISTER FOR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff3300] to-[#cc0000]">HACK[AI]THON</span>
+                        REGISTER FOR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#E9D5FF]">HackNova</span>
                     </h1>
                     <p className="text-gray-400 text-xl max-w-2xl mx-auto font-rajdhani">
-                        Assemble your clan. Only the most skilled techno-samurai will emerge victorious in the ultimate hackathon trial.
+                        Chart your coordinates. Only the most skilled pioneers will emerge victorious in the ultimate cosmic mission.
                     </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-12 backdrop-blur-md bg-black/40 p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl relative">
-                    <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#ff3300]/50 to-transparent" />
+                    <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#8B5CF6]/50 to-transparent" />
 
                     {/* Team Info */}
                     <div className="space-y-6">
                         <div className="flex items-center gap-4 mb-8">
-                            <Shield className="w-8 h-8 text-[#ff3300]" />
-                            <h2 className="text-3xl font-orbitron">CLAN IDENTIFICATION</h2>
+                            <Shield className="w-8 h-8 text-[#8B5CF6]" />
+                            <h2 className="text-3xl font-orbitron">CREW IDENTIFICATION</h2>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -125,8 +125,8 @@ export default function Register() {
                                     type="text"
                                     value={teamName}
                                     onChange={(e) => setTeamName(e.target.value)}
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#ff3300] focus:ring-1 focus:ring-[#ff3300] transition-colors font-rajdhani text-lg"
-                                    placeholder="e.g. Ronin Bytes"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] focus:ring-1 focus:ring-[#8B5CF6] transition-colors font-rajdhani text-lg"
+                                    placeholder="e.g. Star Voyagers"
                                 />
                             </div>
 
@@ -138,7 +138,7 @@ export default function Register() {
                                             key={size}
                                             type="button"
                                             onClick={() => handleMemberCountChange(size)}
-                                            className={`flex-1 py-2 text-lg font-rajdhani rounded-md transition-all ${memberCount === size ? 'bg-[#ff3300] text-black font-bold shadow-[0_0_15px_rgba(255,51,0,0.5)]' : 'text-gray-400 hover:text-white'}`}
+                                            className={`flex-1 py-2 text-lg font-rajdhani rounded-md transition-all ${memberCount === size ? 'bg-[#8B5CF6] text-white font-bold shadow-[0_0_15px_rgba(139,92,246,0.5)]' : 'text-gray-400 hover:text-white'}`}
                                         >
                                             {size}
                                         </button>
@@ -153,18 +153,18 @@ export default function Register() {
                     {/* Members Info */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 mb-4">
-                            <Users className="w-8 h-8 text-[#ff3300]" />
-                            <h2 className="text-3xl font-orbitron">WARRIORS ({members.length})</h2>
+                            <Users className="w-8 h-8 text-[#8B5CF6]" />
+                            <h2 className="text-3xl font-orbitron">MISSION CREW ({members.length})</h2>
                         </div>
 
                         {members.map((member, idx) => (
-                            <div key={idx} className="relative bg-white/[0.02] border border-white/5 p-6 rounded-xl group hover:border-[#ff3300]/30 transition-colors">
-                                <div className="absolute -left-3 -top-3 w-8 h-8 bg-black border border-[#ff3300]/50 rounded-full flex items-center justify-center font-orbitron text-[#ff3300] font-bold text-sm">
+                            <div key={idx} className="relative bg-white/[0.02] border border-white/5 p-6 rounded-xl group hover:border-[#8B5CF6]/30 transition-colors">
+                                <div className="absolute -left-3 -top-3 w-8 h-8 bg-black border border-[#8B5CF6]/50 rounded-full flex items-center justify-center font-orbitron text-[#8B5CF6] font-bold text-sm">
                                     {idx + 1}
                                 </div>
 
                                 <h3 className="text-xl font-orbitron mb-6 text-gray-300">
-                                    {idx === 0 ? 'SHOGUN (Leader)' : `SAMURAI ${idx}`}
+                                    {idx === 0 ? 'COMMANDER (Leader)' : `CREW MEMBER ${idx}`}
                                 </h3>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -175,8 +175,8 @@ export default function Register() {
                                             type="text"
                                             value={member.name}
                                             onChange={(e) => handleMemberChange(idx, 'name', e.target.value)}
-                                            placeholder="Warrior Name"
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors"
+                                            placeholder="Member Name"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors"
                                         />
                                     </div>
 
@@ -188,7 +188,7 @@ export default function Register() {
                                             value={member.email}
                                             onChange={(e) => handleMemberChange(idx, 'email', e.target.value)}
                                             placeholder="Comm Link (Email)"
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors"
                                         />
                                     </div>
 
@@ -200,7 +200,7 @@ export default function Register() {
                                             value={member.phone}
                                             onChange={(e) => handleMemberChange(idx, 'phone', e.target.value)}
                                             placeholder="Holo-Frequency (Phone)"
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors"
                                         />
                                     </div>
 
@@ -210,14 +210,14 @@ export default function Register() {
                                             required
                                             value={member.role}
                                             onChange={(e) => handleMemberChange(idx, 'role', e.target.value)}
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors appearance-none"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors appearance-none"
                                         >
-                                            <option value="" disabled>Select Combat Style</option>
-                                            <option value="frontend">Frontend Ronin</option>
-                                            <option value="backend">Backend Shinobi</option>
-                                            <option value="fullstack">Fullstack Samurai</option>
-                                            <option value="ai">AI Alchemist</option>
-                                            <option value="design">UI/UX Architect</option>
+                                            <option value="" disabled>Select Cosmic Specialty</option>
+                                            <option value="frontend">Frontend Voyager</option>
+                                            <option value="backend">Backend Navigator</option>
+                                            <option value="fullstack">Fullstack Engineer</option>
+                                            <option value="ai">AI Astrodynamicist</option>
+                                            <option value="design">UI/UX Cosmic Architect</option>
                                         </select>
                                     </div>
 
@@ -228,7 +228,7 @@ export default function Register() {
                                             value={member.college}
                                             onChange={(e) => handleMemberChange(idx, 'college', e.target.value)}
                                             placeholder="College/University Name"
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors"
                                         />
                                     </div>
 
@@ -237,7 +237,7 @@ export default function Register() {
                                             required
                                             value={member.gender}
                                             onChange={(e) => handleMemberChange(idx, 'gender', e.target.value)}
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors appearance-none"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors appearance-none"
                                         >
                                             <option value="" disabled>Select Gender</option>
                                             <option value="Male">Male</option>
@@ -251,7 +251,7 @@ export default function Register() {
                                             required
                                             value={member.year}
                                             onChange={(e) => handleMemberChange(idx, 'year', e.target.value)}
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors appearance-none"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors appearance-none"
                                         >
                                             <option value="" disabled>Year of Study</option>
                                             <option value="1st Year">1st Year</option>
@@ -269,7 +269,7 @@ export default function Register() {
                                             value={member.course}
                                             onChange={(e) => handleMemberChange(idx, 'course', e.target.value)}
                                             placeholder="Course & Branch (e.g. B.Tech Computer Science)"
-                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#ff3300] transition-colors"
+                                            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#8B5CF6] transition-colors"
                                         />
                                     </div>
                                 </div>
@@ -289,9 +289,9 @@ export default function Register() {
                         disabled={status === 'loading'}
                         className="w-full relative group overflow-hidden mt-8"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#ff3300] to-[#cc0000] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-                        <div className="bg-white/5 border border-[#ff3300]/50 text-white font-orbitron text-xl py-4 px-8 flex items-center justify-center gap-4 relative z-10 group-hover:text-black transition-colors duration-300">
-                            {status === 'loading' ? 'FORGING PACT...' : 'SWEAR FEALTY (SUBMIT)'}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6] to-[#E9D5FF] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+                        <div className="bg-white/5 border border-[#8B5CF6]/50 text-white font-orbitron text-xl py-4 px-8 flex items-center justify-center gap-4 relative z-10 group-hover:text-black transition-colors duration-300">
+                            {status === 'loading' ? 'INITIATING LAUNCH...' : 'LAUNCH REGISTRATION (SUBMIT)'}
                             <ChevronRight className="w-6 h-6" />
                         </div>
                     </button>

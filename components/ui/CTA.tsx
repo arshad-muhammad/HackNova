@@ -7,7 +7,7 @@ export default function CTA() {
   return (
     <section className="py-32 relative overflow-hidden border-t border-white/10">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-samurai-orange/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-space-purple/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.div
@@ -25,7 +25,7 @@ export default function CTA() {
 
           <h2 className="text-[60px] md:text-[88px] font-black leading-[0.9] uppercase tracking-[-0.04em] mb-6">
             ANSWER THE <br />
-            <span className="text-samurai-red">CALL TO BUILD</span>
+            <span className="text-space-purple">CALL TO BUILD</span>
           </h2>
 
           <p className="text-base leading-[1.6] text-ink-dim max-w-[500px] mx-auto mb-10">

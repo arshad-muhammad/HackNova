@@ -4,21 +4,21 @@ import Footer from '@/components/ui/Footer';
 import './globals.css';
 
 export const metadata = {
-    title: 'HACK[AI]THON 2026 | National Level AI Hackathon at Joy University',
-    description: 'Join HACK[AI]THON 2026, a premier 24-hour national Artificial Intelligence hackathon organized by Sphere Hive at Joy University, Tamil Nadu. Push the limits of AI and build innovative solutions.',
-    keywords: ['Hackathon 2026', 'AI Hackathon', 'Artificial Intelligence', 'Joy University', 'Machine Learning', 'Coding Competition India', 'Tech Fest Tamil Nadu', 'Sphere Hive', '24 hour coding'],
-    authors: [{ name: 'Sphere Hive' }, { name: 'Startup Lab JU' }],
+    title: 'HackNova 2026 | National Level AI Hackathon at VTU Belagavi',
+    description: 'Join HackNova 2026, a premier 24-hour national Artificial Intelligence hackathon organized by Sphere Hive at VTU Belagavi. Push the limits of AI and build innovative solutions.',
+    keywords: ['Hackathon 2026', 'AI Hackathon', 'Artificial Intelligence', 'VTU Belagavi', 'Machine Learning', 'Coding Competition India', 'Tech Fest Karnataka', 'Sphere Hive', '24 hour coding'],
+    authors: [{ name: 'Sphere Hive' }],
     openGraph: {
-        title: 'HACK[AI]THON 2026 | National Level AI Hackathon',
-        description: 'Join the premier 24-hour Artificial Intelligence hackathon at Joy University, Tamil Nadu. Compete with the best minds in tech to build transformative AI solutions.',
+        title: 'HackNova 2026 | National Level AI Hackathon',
+        description: 'Join the premier 24-hour Artificial Intelligence hackathon at VTU Belagavi. Compete with the best minds in tech to build transformative AI solutions.',
         url: 'https://unstop.com/p/hackaithon-2026-joy-university-1675805',
-        siteName: 'HACK[AI]THON 2026',
+        siteName: 'HackNova',
         images: [
             {
                 url: '/logo.png',
                 width: 1200,
                 height: 630,
-                alt: 'HACK[AI]THON 2026 Banner',
+                alt: 'HackNova 2026 Banner',
             },
         ],
         locale: 'en_IN',
@@ -26,8 +26,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'HACK[AI]THON 2026 | National Level AI Hackathon',
-        description: 'Join the premier 24-hour Artificial Intelligence hackathon at Joy University, Tamil Nadu. Compete with the best minds in tech.',
+        title: 'HackNova 2026 | National Level AI Hackathon',
+        description: 'Join the premier 24-hour Artificial Intelligence hackathon at VTU Belagavi. Compete with the best minds in tech.',
         images: ['/logo.png'],
     },
     icons: {
@@ -57,13 +57,13 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="min-h-screen bg-samurai-black text-white font-sans selection:bg-samurai-orange selection:text-white relative flex flex-col">
+            <body className="min-h-screen bg-space-black text-white font-sans selection:bg-space-purple selection:text-white relative flex flex-col">
                 {/* Side Rails */}
                 <div className="fixed bottom-10 left-10 [writing-mode:vertical-rl] rotate-180 text-[10px] tracking-[0.3em] uppercase text-white/20 z-50 pointer-events-none hidden lg:block">
-                    DESIGNED FOR DISCIPLINE
+                    CODED IN THE COSMOS
                 </div>
                 <div className="fixed bottom-10 right-10 [writing-mode:vertical-rl] text-[10px] tracking-[0.3em] uppercase text-white/20 z-50 pointer-events-none hidden lg:block">
-                    BUILT FOR INNOVATION
+                    NAVIGATE THE STARS
                 </div>
 
                 <Navbar />

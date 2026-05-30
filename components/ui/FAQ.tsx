@@ -7,7 +7,7 @@ import { useState } from 'react';
 const faqs = [
   {
     question: 'Who can participate?',
-    answer: 'Hack[AI]thon is open to all developers, designers, and visionaries. Whether you are a seasoned coder or a rising talent, you are welcome to join the event.'
+    answer: 'HackNova is open to all developers, designers, and visionaries. Whether you are a seasoned coder or a rising talent, you are welcome to join the event.'
   },
   {
     question: 'Is it team-based or solo?',
@@ -41,9 +41,9 @@ export default function FAQ() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 mb-4"
           >
-            <span className="w-8 h-[1px] bg-samurai-red" />
-            <span className="text-samurai-red font-display tracking-widest uppercase text-[10px] font-extrabold">Knowledge Base</span>
-            <span className="w-8 h-[1px] bg-samurai-red" />
+            <span className="w-8 h-[1px] bg-space-purple" />
+            <span className="text-space-purple font-display tracking-widest uppercase text-[10px] font-extrabold">Knowledge Base</span>
+            <span className="w-8 h-[1px] bg-space-purple" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function FAQ() {
             transition={{ delay: 0.1 }}
             className="text-[60px] md:text-[88px] font-black leading-[0.9] uppercase tracking-[-0.04em]"
           >
-            SEEK <span className="text-samurai-red">WISDOM</span>
+            SEEK <span className="text-space-purple">WISDOM</span>
           </motion.h2>
         </div>
 
@@ -71,7 +71,7 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
               >
                 <span className="text-lg font-display tracking-wide text-white font-bold">{faq.question}</span>
-                <div className={`w-8 h-8 flex items-center justify-center transition-colors btn-cut ${openIndex === index ? 'bg-samurai-red text-white' : 'bg-white/5 text-gray-400'}`}>
+                <div className={`w-8 h-8 flex items-center justify-center transition-colors btn-cut ${openIndex === index ? 'bg-space-purple text-white' : 'bg-white/5 text-gray-400'}`}>
                   {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </div>
               </button>

@@ -9,16 +9,16 @@ export default function CodeOfConduct() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-widest text-samurai-red mb-8">
+                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-widest text-space-purple mb-8">
                     Code of Conduct
                 </h1>
-                <div className="prose prose-invert prose-red max-w-none font-light leading-relaxed space-y-6">
+                <div className="prose prose-invert prose-violet max-w-none font-light leading-relaxed space-y-6">
                     <p>
-                        At HACK[AI]THON, we are committed to providing a safe, inclusive, and harassment-free experience for everyone, regardless of gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, or religion.
+                        At HackNova, we are committed to providing a safe, inclusive, and harassment-free experience for everyone, regardless of gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, or religion.
                     </p>
                     <h2 className="text-2xl font-bold mt-8 mb-4 text-white uppercase tracking-wider">Respect and Discipline</h2>
                     <p>
-                        Embrace the samurai code of honor. Treat all participants, mentors, organizers, and judges with respect. Harassment of any kind will not be tolerated. This includes offensive verbal comments, sexual images in public spaces, intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, and unwelcome sexual attention.
+                        Embrace the mission code of honor. Treat all participants, mentors, organizers, and judges with respect. Harassment of any kind will not be tolerated. This includes offensive verbal comments, sexual images in public spaces, intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, and unwelcome sexual attention.
                     </p>
                     <h2 className="text-2xl font-bold mt-8 mb-4 text-white uppercase tracking-wider">Reporting</h2>
                     <p>

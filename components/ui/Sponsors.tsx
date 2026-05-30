@@ -9,58 +9,69 @@ const sponsors = [
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" className="py-32 relative bg-samurai-charcoal/30 border-y border-white/5">
-      <div className="container mx-auto px-6">
+    <section id="sponsors" className="py-24 relative bg-space-charcoal border-y border-white/5">
+      {/* Background soft ambient glows */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-[-20%] w-[500px] h-[300px] bg-gradient-to-r from-transparent via-space-purple/5 to-transparent blur-[80px]" />
+      </div>
 
-        <div className="text-center mb-20">
+      <div className="container mx-auto px-6 relative z-10">
+
+        <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 mb-4"
+            className="inline-flex items-center gap-2 mb-3"
           >
-            <span className="w-8 h-[1px] bg-samurai-red" />
-            <span className="text-samurai-red font-display tracking-widest uppercase text-[10px] font-extrabold">The Allies</span>
-            <span className="w-8 h-[1px] bg-samurai-red" />
+            <span className="w-6 h-[1px] bg-space-purple/50" />
+            <span className="text-space-purple font-mono tracking-[0.25em] uppercase text-[11px] font-bold">Supported By</span>
+            <span className="w-6 h-[1px] bg-space-purple/50" />
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[60px] md:text-[88px] font-black leading-[0.9] uppercase tracking-[-0.04em]"
+            className="font-display text-[44px] sm:text-[60px] md:text-[76px] font-black leading-[0.9] uppercase tracking-[-0.03em] text-white"
           >
-            HONORED <span className="text-samurai-red">SPONSORS</span>
+            OUR SPONSORS
           </motion.h2>
         </div>
 
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6 md:gap-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
           {sponsors.map((sponsor, index) => {
-            const isTitle = sponsor.tier === 'Title Sponsor';
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className={`glass-panel flex items-center justify-center rounded-xl border border-white/5 hover:border-samurai-red/30 transition-colors grayscale hover:grayscale-0 ${isTitle ? 'w-full max-w-4xl h-48 md:h-64' : 'w-[calc(50%-12px)] md:w-[280px] h-32'
-                  }`}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-panel flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-space-purple/30 transition-all duration-300 p-8 h-56 relative overflow-hidden group"
               >
-                <div className="text-center p-4">
-                  {sponsor.logo ? (
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className={`mx-auto object-contain mb-4 ${isTitle ? 'h-20 md:h-32' : 'h-12 md:h-16'}`}
-                    />
-                  ) : (
-                    <div className={`font-display font-bold text-white/50 tracking-widest uppercase mb-4 ${isTitle ? 'text-3xl md:text-5xl' : 'text-xl md:text-2xl'}`}>
-                      {sponsor.name}
-                    </div>
-                  )}
-                  <div className={`text-samurai-red tracking-widest uppercase ${isTitle ? 'text-sm md:text-lg font-bold mt-2' : 'text-[10px]'}`}>
-                    {sponsor.tier}
+                {/* Micro-glow on hover */}
+                <div className="absolute inset-0 bg-radial-glow opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none scale-75" />
+
+                <div className="relative z-10 flex flex-col items-center justify-between h-full w-full">
+                  <div className="flex-grow flex items-center justify-center w-full">
+                    {sponsor.logo ? (
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="max-h-20 w-auto object-contain max-w-[80%] opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
+                      />
+                    ) : (
+                      <div className="font-display font-black text-white/40 tracking-wider text-2xl uppercase group-hover:text-white transition-colors">
+                        {sponsor.name}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="mt-4 text-center">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[10px] sm:text-[11px] font-mono tracking-widest text-space-purple uppercase font-semibold">
+                      {sponsor.tier}
+                    </span>
                   </div>
                 </div>
               </motion.div>
