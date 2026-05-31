@@ -137,7 +137,7 @@ export default function Hero() {
             className="mt-10 flex flex-col sm:flex-row items-center gap-3"
           >
             <a
-              href="https://unstop.com/p/hackaithon-2026-joy-university-1675805"
+              href="https://unstop.com/p/hacknova-sphere-hive-kvg-college-of-engineering-sullia-1693176"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary group h-12 px-7 min-w-[180px] text-[12px] font-bold uppercase tracking-[0.18em]"

@@ -72,7 +72,7 @@ export default function CommandPalette() {
       { id: "nav-sphere", label: "About Sphere Hive", group: "Navigate", icon: <Users className="w-3.5 h-3.5" />, keywords: "sphere hive team", run: () => goto("sphere-hive") },
 
       // Actions
-      { id: "act-register", label: "Register for HackNova", hint: "Opens Unstop", group: "Actions", icon: <Rocket className="w-3.5 h-3.5" />, keywords: "register signup join", run: () => window.open("https://unstop.com/p/hackaithon-2026-joy-university-1675805", "_blank", "noopener,noreferrer") },
+      { id: "act-register", label: "Register for HackNova", hint: "Opens Unstop", group: "Actions", icon: <Rocket className="w-3.5 h-3.5" />, keywords: "register signup join", run: () => window.open("https://unstop.com/p/hacknova-sphere-hive-kvg-college-of-engineering-sullia-1693176", "_blank", "noopener,noreferrer") },
       { id: "act-manifesto", label: "Read the manifesto", group: "Actions", icon: <FileText className="w-3.5 h-3.5" />, keywords: "manifesto why data centric", run: () => (window.location.href = "/manifesto") },
       { id: "act-email", label: "Email the organisers", hint: "spherehive@kvgce.ac.in", group: "Actions", icon: <Mail className="w-3.5 h-3.5" />, keywords: "email contact mail", run: () => (window.location.href = "mailto:spherehive@kvgce.ac.in") },
       { id: "act-whatsapp", label: "Join the WhatsApp community", group: "Actions", icon: <MessageCircle className="w-3.5 h-3.5" />, keywords: "whatsapp community chat", run: () => window.open("https://chat.whatsapp.com/IhdbBT7OKAd1LHpYy9XBkc", "_blank", "noopener,noreferrer") },
