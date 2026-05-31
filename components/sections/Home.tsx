@@ -9,6 +9,7 @@ import Timeline from '../ui/Timeline';
 import Sponsors from '../ui/Sponsors';
 import FAQ from '../ui/FAQ';
 import CTA from '../ui/CTA';
+import SphereHive from '../ui/SphereHive';
 
 export default function Home() {
     useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home() {
             <Sponsors />
             <FAQ />
             <CTA />
+            <SphereHive />
         </>
     );
 }
