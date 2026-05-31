@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const facts: [string, string][] = [
   ["Date", "August 8 — 9, 2026"],
   ["Duration", "24 Hours, non-stop"],
-  ["Venue", "VTU Belagavi, Karnataka"],
+  ["Venue", "VRIF, VTU Belagavi, Karnataka"],
   ["Open To", "Students, nationwide"],
 ];
 

@@ -3,6 +3,7 @@ import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import StarField from '@/components/ui/StarField';
 import ScrollProgress from '@/components/ui/ScrollProgress';
+import IntroSplash from '@/components/ui/IntroSplash';
 import './globals.css';
 
 export const metadata = {
@@ -67,6 +68,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="min-h-screen bg-space-black text-white font-sans selection:bg-space-purple selection:text-white relative flex flex-col">
+                {/* First-paint intro splash (2.5s editorial counter) */}
+                <IntroSplash />
+
                 {/* Ambient cosmic backdrop (canvas stars + aurora + grid + grain) */}
                 <StarField />
 

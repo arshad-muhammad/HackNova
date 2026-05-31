@@ -16,7 +16,7 @@ const stats: Stat[] = [
   { label: "Builders", value: 200, suffix: "+", desc: "Engineers and designers nationwide." },
   { label: "Mentors", value: 20, suffix: "+", desc: "From leading AI research and industry." },
   { label: "Prize Pool", value: 30, prefix: "₹", suffix: "K", desc: "Plus sponsored prizes & goodies." },
-  { label: "Arena", staticValue: "VTU", desc: "Belagavi · 24-hour offline." },
+  { label: "Arena", staticValue: "VRIF VTU", desc: "Belagavi · 24-hour offline." },
 ];
 
 export default function Stats() {

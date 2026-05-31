@@ -116,15 +116,15 @@ export default function Footer() {
               Contact
             </div>
             <a
-              href="mailto:hello@hacknova.in"
+              href="mailto:spherehive@kvgce.ac.in"
               className="group inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors"
             >
               <Mail className="w-4 h-4 text-space-purple-glow" />
-              hello@hacknova.in
+              spherehive@kvgce.ac.in
             </a>
             <p className="mt-4 text-[12px] text-ink-dim font-light leading-relaxed">
-              VTU Belagavi · Karnataka<br />
-              India · 590018
+              Sphere Hive, HQ · KVG College of Engineering · Sullia<br />
+              India · 574327
             </p>
 
             <Link

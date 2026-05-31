@@ -123,10 +123,10 @@ export default function FAQ() {
         <motion.div {...fade} className="mt-10 font-mono text-[11px] tracking-[0.22em] uppercase text-white/45">
           Still curious?{" "}
           <a
-            href="mailto:hello@hacknova.in"
+            href="mailto:spherehive@kvgce.ac.in"
             className="text-white/85 border-b border-white/20 hover:border-white pb-0.5 transition-colors"
           >
-            hello@hacknova.in
+            spherehive@kvgce.ac.in
           </a>
         </motion.div>
       </div>
