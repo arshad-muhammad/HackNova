@@ -10,7 +10,33 @@ type Vec = { x: number; y: number };
 type Bullet = Vec & { dx: number; dy: number; life: number };
 type Rock = Vec & { dx: number; dy: number };
 
+type GameState = {
+  ship: Vec;
+  angle: number;
+  vx: number;
+  vy: number;
+  bullets: Bullet[];
+  rocks: Rock[];
+  keys: Set<string>;
+  cooldown: number;
+  tick: number;
+};
+
 const wrap = (v: number, max: number) => ((v % max) + max) % max;
+
+function makeInitialState(): GameState {
+  return {
+    ship: { x: COLS / 2, y: ROWS / 2 },
+    angle: 0,
+    vx: 0,
+    vy: 0,
+    bullets: [],
+    rocks: spawnRocks(5),
+    keys: new Set<string>(),
+    cooldown: 0,
+    tick: 0,
+  };
+}
 
 /**
  * A tiny ASCII space dodger.
@@ -27,21 +53,7 @@ export default function LostGame() {
   const focusRef = useRef<HTMLDivElement | null>(null);
 
   // Mutable game state — kept in a ref so we don't trigger re-renders per tick
-  const state = useRef(initialState());
-
-  function initialState() {
-    return {
-      ship: { x: COLS / 2, y: ROWS / 2 },
-      angle: 0, // radians, 0 = right
-      vx: 0,
-      vy: 0,
-      bullets: [] as Bullet[],
-      rocks: spawnRocks(5),
-      keys: new Set<string>(),
-      cooldown: 0,
-      tick: 0,
-    };
-  }
+  const state = useRef<GameState>(makeInitialState());
 
   // ---- Input ----
   useEffect(() => {
@@ -161,7 +173,7 @@ export default function LostGame() {
   }
 
   function reset() {
-    state.current = initialState();
+    state.current = makeInitialState();
     setScore(0);
     setDead(false);
     setPaused(false);
@@ -170,7 +182,7 @@ export default function LostGame() {
   }
 
   function start() {
-    state.current = initialState();
+    state.current = makeInitialState();
     setScore(0);
     setDead(false);
     setPaused(false);
@@ -281,7 +293,7 @@ function shipChar(angle: number) {
   return sectors[(s + 8) % 8];
 }
 
-function render(s: ReturnType<typeof initialState>) {
+function render(s: GameState) {
   const buf: string[][] = Array.from({ length: ROWS }, () =>
     Array(COLS).fill(" ")
   );
