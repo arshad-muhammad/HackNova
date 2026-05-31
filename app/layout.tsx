@@ -4,6 +4,7 @@ import Footer from '@/components/ui/Footer';
 import StarField from '@/components/ui/StarField';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import IntroSplash from '@/components/ui/IntroSplash';
+import CommandPalette from '@/components/ui/CommandPalette';
 import './globals.css';
 
 export const metadata = {
@@ -24,10 +25,10 @@ export const metadata = {
         siteName: 'HackNova',
         images: [
             {
-                url: '/logo.png',
+                url: '/api/og',
                 width: 1200,
                 height: 630,
-                alt: 'HackNova 2026 Banner',
+                alt: 'HackNova 2026',
             },
         ],
         locale: 'en_IN',
@@ -38,7 +39,7 @@ export const metadata = {
         title: 'HackNova 2026 | National Level AI Hackathon',
         description:
             'Join the premier 24-hour Artificial Intelligence hackathon at VTU Belagavi. Compete with the best minds in tech.',
-        images: ['/logo.png'],
+        images: ['/api/og'],
     },
     icons: {
         icon: [
@@ -88,6 +89,9 @@ export default function RootLayout({
                 <Navbar />
                 <main className="flex-grow relative z-10">{children}</main>
                 <Footer />
+
+                {/* Cmd/Ctrl+K · ? · Konami */}
+                <CommandPalette />
             </body>
         </html>
     );

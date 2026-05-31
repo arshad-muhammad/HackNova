@@ -17,6 +17,7 @@ const links = {
     { label: "Challenge", href: "/#challenge" },
     { label: "Schedule", href: "/#schedule" },
     { label: "Sponsors", href: "/#sponsors" },
+    { label: "Manifesto", href: "/manifesto" },
     { label: "FAQ", href: "/#faq" },
   ],
   Legal: [

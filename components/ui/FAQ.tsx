@@ -120,13 +120,32 @@ export default function FAQ() {
           })}
         </ul>
 
-        <motion.div {...fade} className="mt-10 font-mono text-[11px] tracking-[0.22em] uppercase text-white/45">
-          Still curious?{" "}
+        <motion.div {...fade} className="mt-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 font-mono text-[11px] tracking-[0.22em] uppercase text-white/45">
+          <span>
+            Still curious?{" "}
+            <a
+              href="mailto:spherehive@kvgce.ac.in"
+              className="text-white/85 border-b border-white/20 hover:border-white pb-0.5 transition-colors"
+            >
+              spherehive@kvgce.ac.in
+            </a>
+          </span>
           <a
-            href="mailto:spherehive@kvgce.ac.in"
-            className="text-white/85 border-b border-white/20 hover:border-white pb-0.5 transition-colors"
+            href="https://chat.whatsapp.com/IhdbBT7OKAd1LHpYy9XBkc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors"
           >
-            spherehive@kvgce.ac.in
+            <span className="border-b border-white/20 hover:border-white pb-0.5">
+              Join the WhatsApp community
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              className="w-3.5 h-3.5 fill-current"
+              aria-hidden
+            >
+              <path d="M17.6 6.32A7.85 7.85 0 0012.05 4a7.94 7.94 0 00-6.78 11.95l-1.05 3.84 3.94-1.03a7.92 7.92 0 003.79.96h.01A7.94 7.94 0 0017.6 6.32zM12.06 18.4h-.01a6.6 6.6 0 01-3.36-.92l-.24-.14-2.34.61.62-2.28-.16-.24a6.6 6.6 0 1111.83-4.04 6.6 6.6 0 01-6.34 7.01zm3.62-4.94c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.51.65-.62.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.36-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.34.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.08-.62-1.48-.16-.39-.33-.34-.45-.34l-.39-.01a.74.74 0 00-.54.25c-.18.2-.7.69-.7 1.67s.72 1.94.82 2.07c.1.13 1.41 2.16 3.42 3.03.48.21.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.18-.48 1.35-.95.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z" />
+            </svg>
           </a>
         </motion.div>
       </div>

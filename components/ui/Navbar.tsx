@@ -135,6 +135,27 @@ export default function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
+          {/* ⌘K hint — clicking dispatches the same shortcut */}
+          <button
+            type="button"
+            onClick={() => {
+              const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+              window.dispatchEvent(
+                new KeyboardEvent("keydown", {
+                  key: "k",
+                  metaKey: isMac,
+                  ctrlKey: !isMac,
+                  bubbles: true,
+                })
+              );
+            }}
+            className="hidden md:inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] uppercase text-white/45 hover:text-white transition-colors"
+            aria-label="Open command palette"
+          >
+            <kbd className="border border-white/10 rounded px-1.5 py-0.5">⌘</kbd>
+            <kbd className="border border-white/10 rounded px-1.5 py-0.5">K</kbd>
+          </button>
+
           <Link
             href="/register"
             className="hidden md:inline-flex btn-primary px-5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] !rounded-full"

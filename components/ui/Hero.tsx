@@ -36,18 +36,31 @@ export default function Hero() {
         style={reduce ? undefined : { y: videoY, scale: videoScale }}
         className="absolute inset-0 z-0 bg-space-black"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/logo.png"
-          className="absolute inset-0 w-full h-full object-cover opacity-75 mix-blend-screen pointer-events-none"
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
+        {/*
+          Video frame:
+          - Portrait (phones / iPad held vertically):
+              sit the video at the top in its natural 16:9 box.
+              The rest of the section is just the dark gradient,
+              so the astronaut doesn't get zoomed in 2-3× to fill height.
+          - Landscape (desktop / tablet rotated):
+              full bleed, object-cover. object-position keeps the
+              astronaut nicely framed instead of cropping the head.
+        */}
+        <div className="absolute inset-x-0 top-0 portrait:aspect-video landscape:inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%] opacity-75 mix-blend-screen pointer-events-none"
+          >
+            <source src="/hero-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-        {/* Original heavy darken — protects text legibility */}
+        {/* Original heavy darken — protects text legibility, also fades
+            the portrait letterbox edge into the section. */}
         <div className="absolute inset-0 bg-gradient-to-b from-space-black/85 via-space-black/35 to-space-black" />
       </motion.div>
 
