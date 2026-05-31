@@ -53,14 +53,14 @@ export default function Countdown({ compact = false, className = "" }: Props) {
 
   return (
     <div
-      className={`inline-grid grid-cols-4 gap-2 sm:gap-3 ${className}`}
+      className={`inline-grid grid-cols-4 gap-1.5 sm:gap-3 ${className}`}
       role="timer"
       aria-label="Countdown to HackNova 2026"
     >
       {items.map(([label, val], i) => (
         <div
           key={label}
-          className="relative glass-card rounded-xl px-3 sm:px-4 py-3 min-w-[68px] sm:min-w-[88px] text-center overflow-hidden border-gradient"
+          className="relative glass-card rounded-xl px-2 sm:px-4 py-2.5 sm:py-3 min-w-[58px] sm:min-w-[88px] text-center overflow-hidden border-gradient"
         >
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-space-purple/60 to-transparent" />
           <motion.div

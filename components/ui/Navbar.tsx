@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "motion/react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -13,12 +18,16 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const [indicator, setIndicator] = useState<{ left: number; width: number } | null>(null);
+  const [indicator, setIndicator] = useState<{
+    left: number;
+    width: number;
+  } | null>(null);
 
   // Auto-hide nav on scroll down, reveal on scroll up
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
+    if (isOpen) return; // don't hide while menu is open
     if (latest > prev && latest > 140) setHidden(true);
     else setHidden(false);
   });
@@ -50,8 +59,7 @@ export default function Navbar() {
 
   // Sliding indicator follows hover or active
   useEffect(() => {
-    const idx =
-      hoverIndex !== null ? hoverIndex : navItems.indexOf(activeTab);
+    const idx = hoverIndex !== null ? hoverIndex : navItems.indexOf(activeTab);
     const el = tabRefs.current[idx];
     if (el) {
       const parent = el.parentElement!.getBoundingClientRect();
@@ -59,6 +67,21 @@ export default function Navbar() {
       setIndicator({ left: rect.left - parent.left, width: rect.width });
     }
   }, [activeTab, hoverIndex]);
+
+  // Lock body scroll while mobile menu open + close on Esc
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.documentElement.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen]);
 
   const goTo = (item: string) => {
     setActiveTab(item);
@@ -71,144 +94,176 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-5 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50"
-    >
-      <div className="glass-pill rounded-full px-5 py-2.5 flex items-center justify-between border-gradient">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 text-white font-display font-black text-[13px] tracking-[2px] group"
-        >
-          <span className="relative inline-flex">
-            <span className="absolute inset-0 rounded-full bg-space-purple/40 blur-md group-hover:blur-lg transition-all" />
-            <img
-              src="/logo.png"
-              alt="HackNova"
-              className="relative h-7 w-7 object-contain"
-            />
-          </span>
-          <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-            HACKNOVA
-          </span>
-        </Link>
-
-        {/* Desktop nav with sliding pill */}
-        <div
-          className="hidden md:flex items-center gap-1 relative"
-          onMouseLeave={() => setHoverIndex(null)}
-        >
-          {/* Sliding indicator */}
-          {indicator && (
-            <motion.div
-              className="absolute top-1/2 -translate-y-1/2 h-8 rounded-full bg-white/[0.06] border border-white/10"
-              animate={{ left: indicator.left, width: indicator.width }}
-              transition={{ type: "spring", stiffness: 380, damping: 32 }}
-            />
-          )}
-
-          {navItems.map((item, i) => (
-            <button
-              key={item}
-              ref={(el) => {
-                tabRefs.current[i] = el;
-              }}
-              onMouseEnter={() => setHoverIndex(i)}
-              onClick={() => goTo(item)}
-              className={`relative px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] font-semibold transition-colors ${
-                activeTab === item ? "text-white" : "text-ink-dim hover:text-white"
-              }`}
-            >
-              {item}
-              {activeTab === item && (
-                <motion.span
-                  layoutId="active-dot"
-                  className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-space-purple shadow-[0_0_8px_rgba(139,92,246,0.9)]"
-                />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* CTA + mobile toggle */}
-        <div className="flex items-center gap-3">
-          {/* ⌘K hint - clicking dispatches the same shortcut */}
-          <button
-            type="button"
-            onClick={() => {
-              const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", {
-                  key: "k",
-                  metaKey: isMac,
-                  ctrlKey: !isMac,
-                  bubbles: true,
-                })
-              );
-            }}
-            className="hidden md:inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] uppercase text-white/45 hover:text-white transition-colors"
-            aria-label="Open command palette"
-          >
-            <kbd className="border border-white/10 rounded px-1.5 py-0.5">⌘</kbd>
-            <kbd className="border border-white/10 rounded px-1.5 py-0.5">K</kbd>
-          </button>
-
-          <Link
-            href="/register"
-            className="hidden md:inline-flex btn-primary px-5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] !rounded-full"
-          >
-            Register
-            <ChevronRight className="w-3.5 h-3.5" />
-          </Link>
-          <button
-            className="md:hidden text-gray-300 hover:text-white p-1.5 rounded-full hover:bg-white/5 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
+    <>
+      {/* Mobile-only backdrop, closes menu on tap */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-full left-0 w-full mt-3 glass-panel rounded-2xl p-3 flex flex-col gap-1 md:hidden border-gradient"
+          <motion.button
+            type="button"
+            aria-label="Close menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="md:hidden fixed inset-0 z-40 bg-space-black/60 backdrop-blur-sm"
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[92%] max-w-5xl z-50"
+        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
+      >
+        <div className="glass-pill rounded-full pl-3 pr-2 sm:pl-5 sm:pr-2.5 py-2 sm:py-2.5 flex items-center justify-between gap-2 border-gradient">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 sm:gap-2.5 text-white font-display font-black tracking-[2px] group min-w-0"
+            onClick={() => setIsOpen(false)}
           >
-            {navItems.map((item) => (
+            <span className="relative inline-flex shrink-0">
+              <span className="absolute inset-0 rounded-full bg-space-purple/40 blur-md group-hover:blur-lg transition-all" />
+              <img
+                src="/logo.png"
+                alt="HackNova"
+                className="relative h-6 w-6 sm:h-7 sm:w-7 object-contain"
+              />
+            </span>
+            <span className="text-[11px] sm:text-[13px] bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent truncate">
+              HACKNOVA
+            </span>
+          </Link>
+
+          {/* Desktop nav with sliding pill */}
+          <div
+            className="hidden md:flex items-center gap-1 relative"
+            onMouseLeave={() => setHoverIndex(null)}
+          >
+            {indicator && (
+              <motion.div
+                className="absolute top-1/2 -translate-y-1/2 h-8 rounded-full bg-white/[0.06] border border-white/10"
+                animate={{ left: indicator.left, width: indicator.width }}
+                transition={{ type: "spring", stiffness: 380, damping: 32 }}
+              />
+            )}
+
+            {navItems.map((item, i) => (
               <button
                 key={item}
-                onClick={() => {
-                  goTo(item);
-                  setIsOpen(false);
+                ref={(el) => {
+                  tabRefs.current[i] = el;
                 }}
-                className={`p-3 rounded-xl text-left font-medium text-sm tracking-wider transition-colors ${
+                onMouseEnter={() => setHoverIndex(i)}
+                onClick={() => goTo(item)}
+                className={`relative px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] font-semibold transition-colors ${
                   activeTab === item
-                    ? "bg-space-purple/15 text-white border border-space-purple/30"
-                    : "text-ink-dim hover:text-white hover:bg-white/[0.04]"
+                    ? "text-white"
+                    : "text-ink-dim hover:text-white"
                 }`}
               >
                 {item}
+                {activeTab === item && (
+                  <motion.span
+                    layoutId="active-dot"
+                    className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-space-purple shadow-[0_0_8px_rgba(139,92,246,0.9)]"
+                  />
+                )}
               </button>
             ))}
+          </div>
+
+          {/* Right cluster */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* ⌘K hint - desktop only */}
+            <button
+              type="button"
+              onClick={() => {
+                const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+                window.dispatchEvent(
+                  new KeyboardEvent("keydown", {
+                    key: "k",
+                    metaKey: isMac,
+                    ctrlKey: !isMac,
+                    bubbles: true,
+                  })
+                );
+              }}
+              className="hidden lg:inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] uppercase text-white/45 hover:text-white transition-colors"
+              aria-label="Open command palette"
+            >
+              <kbd className="border border-white/10 rounded px-1.5 py-0.5">⌘</kbd>
+              <kbd className="border border-white/10 rounded px-1.5 py-0.5">K</kbd>
+            </button>
+
             <Link
               href="/register"
-              className="block text-center w-full mt-2 p-3 btn-primary !rounded-xl text-white font-bold tracking-wider text-sm"
+              className="hidden md:inline-flex btn-primary px-5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] !rounded-full"
+            >
+              Register
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+
+            {/* Mobile compact register chip */}
+            <Link
+              href="/register"
+              className="md:hidden btn-primary px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] !rounded-full"
               onClick={() => setIsOpen(false)}
             >
-              REGISTER NOW
+              Register
             </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+
+            <button
+              className="md:hidden text-white/85 hover:text-white p-1.5 rounded-full hover:bg-white/5 transition-colors shrink-0"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-full left-0 right-0 mt-2 glass-panel rounded-2xl p-2.5 flex flex-col gap-1 md:hidden border-gradient max-h-[calc(100vh-7rem)] overflow-y-auto"
+            >
+              {navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => {
+                    goTo(item);
+                    setIsOpen(false);
+                  }}
+                  className={`px-4 py-3 rounded-xl text-left font-medium text-sm tracking-[0.08em] uppercase transition-colors ${
+                    activeTab === item
+                      ? "bg-space-purple/15 text-white border border-space-purple/30"
+                      : "text-ink-dim hover:text-white hover:bg-white/[0.04] border border-transparent"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+              <Link
+                href="/register"
+                className="btn-primary !rounded-xl mt-1.5 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] w-full justify-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Register Now
+                <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+    </>
   );
 }
