@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 /**
- * Cinematic hero — the astronaut footage is the centerpiece.
+ * Cinematic hero - the astronaut footage is the centerpiece.
  * Composition is intentionally quiet: tiny brand line up top,
  * a single bold title block in the lower third (film-poster style),
  * one tagline, one info row, two buttons. Nothing else competes.
@@ -19,7 +19,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Gentle, long parallax — matches the floating motion of the footage.
+  // Gentle, long parallax - matches the floating motion of the footage.
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const fadeOut = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const videoY = useTransform(scrollYProgress, [0, 1], [0, 60]);
@@ -37,30 +37,24 @@ export default function Hero() {
         className="absolute inset-0 z-0 bg-space-black"
       >
         {/*
-          Video frame:
-          - Portrait (phones / iPad held vertically):
-              sit the video at the top in its natural 16:9 box.
-              The rest of the section is just the dark gradient,
-              so the astronaut doesn't get zoomed in 2-3× to fill height.
-          - Landscape (desktop / tablet rotated):
-              full bleed, object-cover. object-position keeps the
-              astronaut nicely framed instead of cropping the head.
+          Full-bleed at every viewport. The clip is 16:9 so on a tall phone
+          something must crop — we anchor to top-center on small screens so
+          the astronaut sits in the upper half (above the title block) and
+          shift the focal point lower as the viewport widens.
         */}
-        <div className="absolute inset-x-0 top-0 portrait:aspect-video landscape:inset-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover object-[center_30%] opacity-75 mix-blend-screen pointer-events-none"
-          >
-            <source src="/hero-bg.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top] sm:object-[center_25%] md:object-[center_30%] opacity-75 mix-blend-screen pointer-events-none"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
 
-        {/* Original heavy darken — protects text legibility, also fades
-            the portrait letterbox edge into the section. */}
+        {/* Heavy darken - protects text legibility, fades into the section */}
         <div className="absolute inset-0 bg-gradient-to-b from-space-black/85 via-space-black/35 to-space-black" />
       </motion.div>
 
@@ -69,7 +63,7 @@ export default function Hero() {
         style={reduce ? undefined : { opacity: fadeOut, y: contentY }}
         className="relative z-10 min-h-screen flex flex-col"
       >
-        {/* Top wordmark — tiny, restrained */}
+        {/* Top wordmark - tiny, restrained */}
         <motion.div
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,9 +78,15 @@ export default function Hero() {
         {/* Spacer that lets the astronaut breathe */}
         <div className="flex-grow" />
 
-        {/* Title block, lower-third — film poster cadence */}
+        {/* Title block, lower-third - film poster cadence */}
         <div className="px-6 pb-24 sm:pb-28 md:pb-32 flex flex-col items-center text-center">
-          <motion.h1
+          {/* Screen-reader-only descriptive heading. The visible wordmark
+              below is decorative; this is the keyword-rich semantic H1. */}
+          <h1 className="sr-only">
+            HackNova 2026 - National AI Hackathon at VTU Belagavi · 24 hours · Aug 8 - 9, 2026
+          </h1>
+          <motion.div
+            aria-hidden="true"
             initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0)" }}
             transition={{ duration: 1.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -97,7 +97,7 @@ export default function Hero() {
             }}
           >
             HACKNOVA
-          </motion.h1>
+          </motion.div>
 
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
@@ -115,7 +115,7 @@ export default function Hero() {
             A National AI Hackathon
           </motion.p>
 
-          {/* Info row — single line of facts, no chips, no badges */}
+          {/* Info row - single line of facts, no chips, no badges */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

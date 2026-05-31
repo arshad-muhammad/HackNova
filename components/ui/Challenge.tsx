@@ -41,7 +41,7 @@ export default function Challenge() {
           {...fade}
           className="flex items-baseline justify-between border-t border-white/10 pt-5 mb-14 md:mb-20 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45"
         >
-          <span>Challenge — 02</span>
+          <span>Challenge - 02</span>
           <span className="hidden sm:block">Powered by 3LC.ai</span>
         </motion.div>
 

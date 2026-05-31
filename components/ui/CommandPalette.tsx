@@ -150,7 +150,7 @@ export default function CommandPalette() {
         return;
       }
 
-      // `?` — only when not typing
+      // `?` - only when not typing
       if (!isTyping && (e.key === "?" || (e.key === "/" && e.shiftKey))) {
         e.preventDefault();
         setOpen(true);

@@ -1,21 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Manifesto · HackNova 2026",
+  title: "Manifesto · Why HackNova is built on Data-Centric AI",
   description:
-    "Why HackNova is built around data-centric AI — and why that changes who wins.",
+    "Why HackNova 2026 is built around data-centric AI with 3LC.ai - and why that changes who wins the hackathon. A short read on judgement, taste, and the actual job of an ML engineer.",
+  alternates: { canonical: "/manifesto" },
   openGraph: {
-    title: "Manifesto · HackNova 2026",
+    type: "article",
+    title: "HackNova Manifesto - Improve the data, not the model",
     description:
-      "Why HackNova is built around data-centric AI — and why that changes who wins.",
+      "Why HackNova 2026 is built around data-centric AI with 3LC.ai - and why that changes who wins.",
+    url: absoluteUrl("/manifesto"),
+    siteName: SITE.name,
+    images: [absoluteUrl("/api/og?team=Manifesto")],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HackNova Manifesto - Improve the data, not the model",
+    description:
+      "Why HackNova 2026 is built around data-centric AI with 3LC.ai.",
+    images: [absoluteUrl("/api/og?team=Manifesto")],
   },
 };
 
 export default function ManifestoPage() {
   return (
     <article className="relative pt-36 pb-32">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Manifesto", url: "/manifesto" },
+        ]}
+      />
       <div className="container mx-auto px-6 max-w-3xl">
         {/* Top meta */}
         <div className="flex items-baseline justify-between border-t border-white/10 pt-5 mb-12 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45">
@@ -42,7 +62,7 @@ export default function ManifestoPage() {
           recent paper, and the patience to babysit a training run for fifteen
           hours. HackNova is built differently. The model is fixed. The
           architecture is fixed. The only thing you can change is the dataset
-          itself — and that is where the real signal lives.
+          itself - and that is where the real signal lives.
         </p>
 
         <Section title="01 · The thesis">
@@ -57,7 +77,7 @@ export default function ManifestoPage() {
             We chose this format because it forces builders to confront the
             actual job. You will not impress us with a transformer you found on
             arxiv last week. You will impress us by looking at your data the
-            way a writer looks at a draft — closely, repeatedly, and with the
+            way a writer looks at a draft - closely, repeatedly, and with the
             willingness to throw away the ten percent that&apos;s lying to you.
           </p>
         </Section>
@@ -109,8 +129,8 @@ export default function ManifestoPage() {
             reach for a different optimizer. You reach for the data.
           </p>
           <p>
-            If that sounds like you — or like someone you want to become for a
-            weekend — register your team and meet us in Belagavi.
+            If that sounds like you - or like someone you want to become for a
+            weekend - register your team and meet us in Belagavi.
           </p>
         </Section>
 
@@ -121,7 +141,7 @@ export default function ManifestoPage() {
               Bring your A-team.
             </div>
             <p className="text-sm text-white/55 mt-1">
-              Aug 08 — 09, 2026 · VTU Belagavi
+              Aug 08 - 09, 2026 · VTU Belagavi
             </p>
           </div>
           <a

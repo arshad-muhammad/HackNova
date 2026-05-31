@@ -52,7 +52,7 @@ export default function LostGame() {
   const [running, setRunning] = useState(false);
   const focusRef = useRef<HTMLDivElement | null>(null);
 
-  // Mutable game state — kept in a ref so we don't trigger re-renders per tick
+  // Mutable game state - kept in a ref so we don't trigger re-renders per tick
   const state = useRef<GameState>(makeInitialState());
 
   // ---- Input ----

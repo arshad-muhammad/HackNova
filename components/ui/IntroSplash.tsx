@@ -9,8 +9,8 @@ import {
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-const DURATION = 2.5; // seconds — total counter run
-const TAIL = 0.4;     // seconds — fade-out after hitting 100
+const DURATION = 2.5; // seconds - total counter run
+const TAIL = 0.4;     // seconds - fade-out after hitting 100
 
 /**
  * First-paint intro splash.
@@ -78,10 +78,10 @@ export default function IntroSplash() {
           {/* Top meta row */}
           <div className="absolute top-6 left-6 right-6 flex items-baseline justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-white/55">
             <span>HackNova · 2026</span>
-            <span className="hidden sm:block">Aug 08 — 09</span>
+            <span className="hidden sm:block">Aug 08 - 09</span>
           </div>
 
-          {/* Optional center wordmark — extremely quiet */}
+          {/* Optional center wordmark - extremely quiet */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, y: 8 }}

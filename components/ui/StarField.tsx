@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  * - Layered drifting stars on a canvas (cheap, no deps).
  * - Two slow aurora orbs that breathe.
  * - Cursor "constellation": faint lines connect stars near the cursor.
- *   Subtle by design — fades to nothing if the cursor is idle or off-screen.
+ *   Subtle by design - fades to nothing if the cursor is idle or off-screen.
  * - Respects prefers-reduced-motion.
  */
 export default function StarField() {
@@ -115,7 +115,7 @@ export default function StarField() {
         }
       }
 
-      // Constellation lines — only between stars that are both near the cursor
+      // Constellation lines - only between stars that are both near the cursor
       if (mouse.active > 0.05 && near.length > 1) {
         ctx.lineWidth = 0.6;
         for (let i = 0; i < near.length; i++) {

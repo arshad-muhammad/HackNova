@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 
 const facts: [string, string][] = [
-  ["Date", "August 8 — 9, 2026"],
+  ["Date", "August 8 - 9, 2026"],
   ["Duration", "24 Hours, non-stop"],
   ["Venue", "VRIF, VTU Belagavi, Karnataka"],
   ["Open To", "Students, nationwide"],
@@ -25,8 +25,8 @@ export default function About() {
           {...fade}
           className="flex items-baseline justify-between border-t border-white/10 pt-5 mb-14 md:mb-20 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45"
         >
-          <span>Mission — 01</span>
-          <span className="hidden sm:block">Aug 08 — 09 · 2026</span>
+          <span>Mission - 01</span>
+          <span className="hidden sm:block">Aug 08 - 09 · 2026</span>
         </motion.div>
 
         {/* Headline */}
@@ -50,7 +50,7 @@ export default function About() {
             </p>
             <p className="text-[15px] md:text-base text-white/55 leading-[1.7] max-w-2xl">
               No model architectures to brute-force. No leaderboard tricks.
-              Teams compete on a single AI challenge — judged on how well they
+              Teams compete on a single AI challenge - judged on how well they
               think about data, edge cases, and quality.
             </p>
 

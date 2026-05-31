@@ -1,0 +1,71 @@
+/**
+ * Single source of truth for site-wide constants used in metadata,
+ * structured data, sitemap, manifest, and the OG image generator.
+ *
+ * Keep this small - anything change-prone (date, venue, prize) lives here
+ * so SEO assets never drift from the visible content.
+ */
+
+export const SITE = {
+  name: "HackNova",
+  brand: "HackNova 2026",
+  shortDescription:
+    "A 24-hour national AI hackathon by Sphere Hive at VTU Belagavi.",
+  longDescription:
+    "HackNova 2026 is a 24-hour national level Artificial Intelligence hackathon hosted by Sphere Hive at VTU Belagavi. Teams compete on a single data-centric AI challenge powered by 3LC.ai - improving model accuracy by improving the dataset itself.",
+  // The canonical, public, production URL. Override in env if you change domains.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://hacknova.in",
+  locale: "en_IN",
+  themeColor: "#030207",
+
+  organisation: {
+    name: "Sphere Hive",
+    legalName: "Sphere Hive - Technology & Innovation Club",
+    foundingDate: "2024-11",
+    parent: "KVG College of Engineering, Sullia",
+    email: "spherehive@kvgce.ac.in",
+    instagram: "https://www.instagram.com/spherehive",
+    whatsapp: "https://chat.whatsapp.com/IhdbBT7OKAd1LHpYy9XBkc",
+  },
+
+  event: {
+    name: "HackNova 2026",
+    startDate: "2026-08-08T09:00:00+05:30",
+    endDate: "2026-08-09T13:00:00+05:30",
+    eventStatus: "https://schema.org/EventScheduled",
+    attendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    venue: {
+      name: "VTU Belagavi",
+      streetAddress: "Visvesvaraya Technological University, Jnana Sangama",
+      addressLocality: "Belagavi",
+      addressRegion: "Karnataka",
+      postalCode: "590018",
+      addressCountry: "IN",
+    },
+    registerUrl:
+      "https://unstop.com/p/hackaithon-2026-joy-university-1675805",
+    prizePool: "INR 30,000",
+    keywords: [
+      "AI Hackathon",
+      "National Hackathon 2026",
+      "VTU Belagavi Hackathon",
+      "Karnataka tech fest 2026",
+      "Data-centric AI competition",
+      "Student AI hackathon India",
+      "24 hour hackathon",
+      "Sphere Hive HackNova",
+    ],
+  },
+
+  socials: {
+    twitter: "https://twitter.com",
+    instagram: "https://www.instagram.com/spherehive",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+  },
+} as const;
+
+export const absoluteUrl = (path = "/") =>
+  `${SITE.url}${path.startsWith("/") ? path : "/" + path}`;

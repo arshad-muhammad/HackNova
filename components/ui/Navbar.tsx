@@ -135,7 +135,7 @@ export default function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
-          {/* ⌘K hint — clicking dispatches the same shortcut */}
+          {/* ⌘K hint - clicking dispatches the same shortcut */}
           <button
             type="button"
             onClick={() => {

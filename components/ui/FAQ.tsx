@@ -3,33 +3,10 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import { FAQS } from "@/lib/faqs";
 
-const faqs = [
-  {
-    q: "Who can participate?",
-    a: "HackNova is open to all developers, designers, and visionaries. Whether you're a seasoned coder or a rising talent, you're welcome.",
-  },
-  {
-    q: "Is it team-based or solo?",
-    a: "Teams of 2 to 4 members. You can register as an existing team or assemble one before submission closes.",
-  },
-  {
-    q: "Does it cost anything to register?",
-    a: "Registration is completely free. Bring your skills, your laptop, and your creativity.",
-  },
-  {
-    q: "Who owns the work I build?",
-    a: "You do. The code you ship during the hackathon stays entirely yours, except where sponsor-specific bounty rules apply (and those are communicated up front).",
-  },
-  {
-    q: "Will there be food and drinks?",
-    a: "Yes — full meals, snacks, and caffeine throughout the 24 hours so you can focus on shipping.",
-  },
-  {
-    q: "Do I need prior AI / ML experience?",
-    a: "No prior expertise required. Mentors and warm-up materials are provided so any motivated builder can compete on day one.",
-  },
-];
+// Map shared SEO-friendly schema into the visible accordion shape
+const faqs = FAQS.map((f) => ({ q: f.question, a: f.answer }));
 
 const fade = {
   initial: { opacity: 0, y: 12 },
@@ -48,7 +25,7 @@ export default function FAQ() {
           {...fade}
           className="flex items-baseline justify-between border-t border-white/10 pt-5 mb-14 md:mb-20 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45"
         >
-          <span>Questions — 05</span>
+          <span>Questions - 05</span>
           <span className="hidden sm:block">{faqs.length} entries</span>
         </motion.div>
 

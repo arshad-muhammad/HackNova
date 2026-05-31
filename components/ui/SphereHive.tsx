@@ -16,7 +16,7 @@ const events: EventItem[] = [
     kind: "National Hackathon",
     date: "Apr 2025",
     blurb:
-      "Our first flagship — students from across India came to compete and build.",
+      "Our first flagship - students from across India came to compete and build.",
   },
   {
     name: "HACKWISE X",
@@ -30,13 +30,13 @@ const events: EventItem[] = [
     kind: "National Hackathon",
     date: "Apr 2026",
     blurb:
-      "The second edition of our flagship — bigger in scale, reach, and participation.",
+      "The second edition of our flagship - bigger in scale, reach, and participation.",
   },
   {
     name: "HACK[AI]THON 2026",
     kind: "AI Hackathon",
     date: "May 2026",
-    blurb: "A national AI hackathon — the event where we met.",
+    blurb: "A national AI hackathon - the event where we met.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function SphereHive() {
           {...fade}
           className="flex items-baseline justify-between border-t border-white/10 pt-5 mb-14 md:mb-20 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45"
         >
-          <span>Sphere Hive — 06</span>
+          <span>Sphere Hive - 06</span>
           <span className="hidden sm:block">KVGCE · Sullia</span>
         </motion.div>
 
@@ -89,7 +89,7 @@ export default function SphereHive() {
           </div>
           <figcaption className="mt-4 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase text-white/40">
             <span className="w-8 h-px bg-white/25" />
-            The team — KVG College of Engineering, Sullia
+            The team - KVG College of Engineering, Sullia
           </figcaption>
         </motion.figure>
 
@@ -125,7 +125,7 @@ export default function SphereHive() {
           <motion.div {...fade} className="lg:col-span-7">
             <div className="flex items-baseline justify-between mb-5 font-mono text-[10px] tracking-[0.3em] uppercase text-white/45">
               <span>Selected Events</span>
-              <span>2025 — 2026</span>
+              <span>2025 - 2026</span>
             </div>
 
             <ul className="border-t border-white/10">
