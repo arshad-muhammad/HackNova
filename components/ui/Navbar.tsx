@@ -206,15 +206,6 @@ export default function Navbar() {
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
 
-            {/* Mobile compact register chip */}
-            <Link
-              href="/register"
-              className="md:hidden btn-primary px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] !rounded-full"
-              onClick={() => setIsOpen(false)}
-            >
-              Register
-            </Link>
-
             <button
               className="md:hidden text-white/85 hover:text-white p-1.5 rounded-full hover:bg-white/5 transition-colors shrink-0"
               onClick={() => setIsOpen((v) => !v)}
