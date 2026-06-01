@@ -130,7 +130,7 @@ export default function ManifestoPage() {
           </p>
           <p>
             If that sounds like you - or like someone you want to become for a
-            weekend - register your team and meet us in Belagavi.
+            weekend - register your team and meet us in Tirupati.
           </p>
         </Section>
 
@@ -141,7 +141,7 @@ export default function ManifestoPage() {
               Bring your A-team.
             </div>
             <p className="text-sm text-white/55 mt-1">
-              Aug 08 - 09, 2026 · VTU Belagavi
+              Aug 08 - 09, 2026 · IIT Tirupati
             </p>
           </div>
           <a

@@ -14,9 +14,9 @@ import {
 import { SITE, absoluteUrl } from '@/lib/site';
 import './globals.css';
 
-const TITLE = `${SITE.brand} | National AI Hackathon · 24 Hours · VTU Belagavi`;
+const TITLE = `${SITE.brand} | National AI Hackathon · 24 Hours · IIT Tirupati`;
 const DESCRIPTION =
-    'HackNova 2026 is a free 24-hour national level AI hackathon by Sphere Hive at VTU Belagavi (Aug 8 — 9, 2026). Compete on a data-centric AI challenge with 3LC.ai. ₹30,000 prize pool plus sponsored prizes.';
+    'HackNova 2026 is a free 24-hour national level AI hackathon by Sphere Hive at IIT Tirupati (Aug 8 — 9, 2026). Compete on a data-centric AI challenge with 3LC.ai. ₹35,000 prize pool plus sponsored prizes.';
 
 export const viewport: Viewport = {
     themeColor: SITE.themeColor,
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
         'AI hackathon',
         'AI hackathon India',
         'national hackathon 2026',
-        'national level hackathon Karnataka',
-        'VTU Belagavi hackathon',
+        'national level hackathon Andhra Pradesh',
+        'IIT Tirupati hackathon',
         'data centric AI hackathon',
         '3LC.ai hackathon',
         'Sphere Hive',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         '24 hour hackathon',
         'student hackathon India 2026',
         'machine learning competition India',
-        'tech fest Karnataka 2026',
+        'tech fest Andhra Pradesh 2026',
         'free hackathon',
     ],
     authors: [{ name: SITE.organisation.name, url: SITE.url }],

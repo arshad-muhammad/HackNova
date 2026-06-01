@@ -6,12 +6,13 @@ import TiltCard from "./TiltCard";
 
 const sponsors = [
   { name: "3LC.ai", tier: "Title Sponsor", logo: "/sponsors/3lc_ai_logo.jpg", url: "https://3lc.ai" },
+  { name: "Unstop", tier: "Powered By", logo: "/sponsors/unstop-logo.png", url: "https://unstop.com" },
   { name: "Gen.xyz", tier: "Domain Sponsor", logo: "/sponsors/xyz-logo-color.png", url: "https://gen.xyz" },
 ];
 
 const marqueeWords = [
   "DATA-CENTRIC AI",
-  "BUILT IN BELAGAVI",
+  "BUILT IN TIRUPATI",
   "24 HOURS NON-STOP",
   "POWERED BY VISIONARIES",
   "MENTORED BY EXPERTS",
@@ -75,7 +76,7 @@ export default function Sponsors() {
         </div>
 
         {/* Logo cards */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 mb-14">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
           {sponsors.map((sponsor, index) => (
             <motion.a
               key={index}

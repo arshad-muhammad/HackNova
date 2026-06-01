@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const facts: [string, string][] = [
   ["Date", "August 8 - 9, 2026"],
   ["Duration", "24 Hours, non-stop"],
-  ["Venue", "VRIF, VTU Belagavi, Karnataka"],
+  ["Venue", "IIT Tirupati, Andhra Pradesh"],
   ["Open To", "Students, nationwide"],
 ];
 
@@ -55,7 +55,7 @@ export default function About() {
             </p>
 
             <div className="mt-10 inline-flex items-baseline gap-3 font-display font-black uppercase tracking-[-0.02em]">
-              <span className="text-white text-4xl sm:text-5xl">₹30K</span>
+              <span className="text-white text-4xl sm:text-5xl">₹35K</span>
               <span className="font-mono text-[11px] tracking-[0.25em] text-white/45 uppercase">
                 Prize Pool · Sponsored Prizes · Goodies
               </span>
