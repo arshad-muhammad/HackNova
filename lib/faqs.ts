@@ -43,11 +43,11 @@ export const FAQS: FAQItem[] = [
   {
     question: "Where is HackNova 2026 held?",
     answer:
-      "HackNova 2026 is held offline at VTU Belagavi, Karnataka, India on 8 - 9 August 2026.",
+      "HackNova 2026 is held offline at IIT Tirupati, Andhra Pradesh, India on 8 - 9 August 2026.",
   },
   {
     question: "What is the prize pool for HackNova 2026?",
     answer:
-      "The total prize pool is ₹30,000 along with sponsored prizes, free .xyz domain registration for every participant, certificates, and goodies.",
+      "The total prize pool is ₹35,000 along with sponsored prizes, free .xyz domain registration for every participant, certificates, and goodies.",
   },
 ];

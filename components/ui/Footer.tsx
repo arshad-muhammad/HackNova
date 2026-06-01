@@ -66,7 +66,7 @@ export default function Footer() {
 
             <p className="text-sm text-ink-dim font-light leading-relaxed max-w-md mb-6">
               A national-level 24-hour AI hackathon presented by Sphere Hive at
-              VTU Belagavi. Build the future with the best minds in the country.
+              IIT Tirupati. Build the future with the best minds in the country.
             </p>
 
             {/* Socials */}

@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
           }}
         >
           <span>HackNova · 2026</span>
-          <span>Aug 08 - 09 · VTU Belagavi</span>
+          <span>Aug 08 - 09 · IIT Tirupati</span>
         </div>
 
         {/* Centered block */}

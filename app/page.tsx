@@ -6,9 +6,9 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
     title:
-        'HackNova 2026 · National AI Hackathon at VTU Belagavi · 24 Hours · Aug 8 — 9',
+        'HackNova 2026 · National AI Hackathon at IIT Tirupati · 24 Hours · Aug 8 — 9',
     description:
-        'HackNova 2026 — a free 24-hour national AI hackathon by Sphere Hive at VTU Belagavi. Compete on a data-centric AI challenge with 3LC.ai. ₹30,000 prize pool, mentors, swag, and free .xyz domain for every participant.',
+        'HackNova 2026 — a free 24-hour national AI hackathon by Sphere Hive at IIT Tirupati. Compete on a data-centric AI challenge with 3LC.ai. ₹35,000 prize pool, mentors, swag, and free .xyz domain for every participant.',
     alternates: { canonical: '/' },
 };
 

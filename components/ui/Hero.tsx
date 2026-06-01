@@ -83,7 +83,7 @@ export default function Hero() {
           {/* Screen-reader-only descriptive heading. The visible wordmark
               below is decorative; this is the keyword-rich semantic H1. */}
           <h1 className="sr-only">
-            HackNova 2026 - National AI Hackathon at VTU Belagavi · 24 hours · Aug 8 - 9, 2026
+            HackNova 2026 - National AI Hackathon at IIT Tirupati · 24 hours · Aug 8 - 9, 2026
           </h1>
           <motion.div
             aria-hidden="true"
@@ -126,7 +126,7 @@ export default function Hero() {
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span>Aug 08–09 · 2026</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>VTU Belagavi</span>
+            <span>IIT Tirupati</span>
           </motion.div>
 
           {/* CTAs */}
